@@ -9,66 +9,17 @@
     ];
 
     const STACK_ITEMS = [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "HTML/CSS",
-        "Bootstrap",
-        "Django",
-        "REST APIs",
-        "SQL",
-        "Python",
-        "PyTorch",
-        "LangChain",
-        "LlamaIndex",
-        "RAG",
-        "Vector DBs",
-        "Docker",
-        "Git",
-        "MLOps-minded",
-        "Accessibility",
-        "Performance",
+        "React", "Next.js", "TypeScript", "JavaScript", "HTML/CSS", "Bootstrap",
+        "Django", "REST APIs", "SQL", "Python", "pandas", "scikit-learn", "PyTorch",
+        "TensorFlow", "OpenCV", "LangChain", "LlamaIndex", "RAG", "Vector DBs",
+        "Jupyter", "Docker", "Git", "Flask", "Tkinter", "Pygame",
     ];
 
-    const PROJECTS = [
-        {
-            title: "Multimodal RAG — Enterprise document analysis",
-            desc: "I built this to show how I think about retrieval, documents, and multimodal enterprise analysis.",
-            href: "https://github.com/Gillmasija/Multimodal_RAG_Enterprise_Document_Analysis",
-        },
-        {
-            title: "Edudash / educational dashboards",
-            desc: "I explore product-style dashboards and full-stack flows where learning products need clear UI.",
-            href: "https://github.com/Gillmasija/EdudashPlatform",
-        },
-        {
-            title: "Image recognition",
-            desc: "I keep this around as my ML/CV baseline when I talk through applied data-science problems.",
-            href: "https://github.com/Gillmasija/Image-recognition",
-        },
-        {
-            title: "django",
-            desc: "I practice Django patterns here because I use them in class, at bootcamp, and in product work.",
-            href: "https://github.com/Gillmasija/django",
-        },
-        {
-            title: "NCS & additional builds",
-            desc: "I park extra application code and experiments in repos like this — I'm tightening READMEs as I go.",
-            href: "https://github.com/Gillmasija/NCS",
-        },
-    ];
-
-    function injectRoleChips() {
-        const host = document.getElementById("roleChips");
-        if (!host) return;
-        host.innerHTML = ROLE_CHIPS.map(
-            (c) =>
-                `<span class="role-chip"><strong>${escapeHtml(c.label)}</strong> · ${escapeHtml(
-                    c.value
-                )}</span>`
-        ).join("");
-    }
+    const LANE_LINKS = {
+        frontend: "frontend.html",
+        data: "data.html",
+        teaching: "teaching.html",
+    };
 
     function escapeHtml(s) {
         return String(s)
@@ -78,27 +29,87 @@
             .replace(/"/g, "&quot;");
     }
 
+    function projectCardHtml(p, opts = {}) {
+        const showLane = opts.showLane && p.lane;
+        const laneLink = showLane ? LANE_LINKS[p.lane] : null;
+        const outcome = p.outcome
+            ? `<span class="font-mono small text-accent d-block mt-2">${escapeHtml(p.outcome)}</span>`
+            : "";
+        const laneBadge = showLane
+            ? `<span class="project-lane-badge font-mono">${escapeHtml(p.lane)}</span>`
+            : "";
+
+        return `
+            <div class="col-md-6 col-xl-4">
+                <a href="${escapeHtml(p.href)}" class="card card-glass project-card text-decoration-none text-body p-4 tilt-hover reveal h-100" target="_blank" rel="noopener noreferrer">
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                        <span class="project-lang-badge font-mono">${escapeHtml(p.lang || "Code")}</span>
+                        ${laneBadge}
+                    </div>
+                    <h3 class="card-title fw-semibold mb-2">${escapeHtml(p.title)}</h3>
+                    <p class="text-secondary small mb-0">${escapeHtml(p.desc)}</p>
+                    ${outcome}
+                    <span class="font-mono small text-accent d-block mt-3">open repo →</span>
+                </a>
+            </div>`;
+    }
+
+    function renderProjects(gridId, list, opts) {
+        const grid = document.getElementById(gridId);
+        if (!grid || !list?.length) return;
+        grid.innerHTML = list.map((p) => projectCardHtml(p, opts)).join("");
+    }
+
+    function initPageProjects() {
+        const catalog = window.PORTFOLIO_PROJECTS;
+        if (!catalog) return;
+
+        const page = document.body.dataset.page || "home";
+
+        if (page === "home") {
+            renderProjects("projectGrid", catalog.highlights, { showLane: true });
+            return;
+        }
+        if (page === "frontend") {
+            renderProjects("projectGrid", catalog.frontend);
+            return;
+        }
+        if (page === "teaching") {
+            renderProjects("projectGrid", catalog.teaching);
+            return;
+        }
+        if (page === "data") {
+            const data = catalog.data || [];
+            renderProjects(
+                "dataGenaiGrid",
+                data.filter((p) => p.section === "genai")
+            );
+            renderProjects(
+                "dataMlGrid",
+                data.filter((p) => p.section === "ml")
+            );
+            renderProjects(
+                "dataAnalyticsGrid",
+                data.filter((p) => p.section === "analytics")
+            );
+        }
+    }
+
+    function injectRoleChips() {
+        const host = document.getElementById("roleChips");
+        if (!host) return;
+        host.innerHTML = ROLE_CHIPS.map(
+            (c) =>
+                `<span class="role-chip"><strong>${escapeHtml(c.label)}</strong> · ${escapeHtml(c.value)}</span>`
+        ).join("");
+    }
+
     function injectStackMarquee() {
         const el = document.getElementById("stackMarquee");
         if (!el) return;
         const doubled = [...STACK_ITEMS, ...STACK_ITEMS];
         const spans = doubled.map((t) => `<span>${escapeHtml(t)}</span>`).join("");
         el.innerHTML = `<div class="stack-inner" aria-hidden="true">${spans}</div>`;
-    }
-
-    function injectProjects() {
-        const grid = document.getElementById("projectGrid");
-        if (!grid) return;
-        grid.innerHTML = PROJECTS.map(
-            (p) => `
-            <div class="col-md-6 col-xl-4">
-                <a href="${escapeHtml(p.href)}" class="card card-glass project-card text-decoration-none text-body p-4 tilt-hover reveal" target="_blank" rel="noopener noreferrer">
-                    <h3 class="card-title fw-semibold mb-2">${escapeHtml(p.title)}</h3>
-                    <p class="text-secondary small mb-3">${escapeHtml(p.desc)}</p>
-                    <span class="font-mono small text-accent">open my repo →</span>
-                </a>
-            </div>`
-        ).join("");
     }
 
     function setupProfileFallback() {
@@ -166,7 +177,7 @@
 
     injectRoleChips();
     injectStackMarquee();
-    injectProjects();
+    initPageProjects();
     setupProfileFallback();
     setupReveal();
     setupSmoothNavClose();

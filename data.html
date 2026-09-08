@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="data">
     <div class="noise-overlay" aria-hidden="true"></div>
     <div class="grid-bg" aria-hidden="true"></div>
 
@@ -61,7 +61,10 @@
                 <div class="col-lg-5 order-1 order-lg-2 text-center">
                     <div class="profile-orbit mx-auto">
                         <div class="profile-ring">
-                            <img id="profilePhoto" class="profile-photo" src="profile.jpg" width="320" height="320" alt="Gillian Masija">
+                            <picture>
+                                <source srcset="images/profile-320.webp 1x, images/profile-640.webp 2x" type="image/webp">
+                                <img id="profilePhoto" class="profile-photo" src="images/profile-320.jpg" width="320" height="320" alt="Gillian Masija" decoding="async" loading="lazy">
+                            </picture>
                             <div id="profileFallback" class="profile-fallback d-none" aria-hidden="true">
                                 <span class="profile-initials">GM</span>
                             </div>
@@ -113,33 +116,25 @@
         <section id="projects" class="section-block section-tight">
             <div class="container">
                 <div class="row align-items-end mb-4">
-                    <div class="col-md-8">
-                        <h2 class="h3 fw-semibold mb-2">Featured data work</h2>
-                        <p class="text-secondary small mb-0">Analytics and ML projects built to support decision-making, automate workflows, and improve product intelligence.</p>
+                    <div class="col-md-9">
+                        <h2 class="h3 fw-semibold mb-2">GitHub data &amp; ML work</h2>
+                        <p class="text-secondary small mb-0">Pulled from my <a href="https://github.com/Gillmasija?tab=repositories" class="link-info" target="_blank" rel="noopener noreferrer">public repositories</a> — GenAI/RAG, classical ML, and analytics / computer-vision notebooks.</p>
                     </div>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-xl-4">
-                        <article class="card card-glass project-card text-body p-4 tilt-hover reveal h-100">
-                            <h3 class="card-title fw-semibold mb-2">RAG knowledge assistant</h3>
-                            <p class="text-secondary small mb-3">A retrieval-augmented system built for document search, evaluation, and contextual answers using embeddings and vector DB workflows.</p>
-                            <span class="font-mono small text-accent">Outcome: knowledge retrieval prototype.</span>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-xl-4">
-                        <article class="card card-glass project-card text-body p-4 tilt-hover reveal h-100">
-                            <h3 class="card-title fw-semibold mb-2">Analytics dashboard</h3>
-                            <p class="text-secondary small mb-3">A report layer for interpreting user behavior, project metrics, and performance indicators in a clean, interactive dashboard.</p>
-                            <span class="font-mono small text-accent">Outcome: actionable analytics.</span>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-xl-4">
-                        <article class="card card-glass project-card text-body p-4 tilt-hover reveal h-100">
-                            <h3 class="card-title fw-semibold mb-2">Predictive model lab</h3>
-                            <p class="text-secondary small mb-3">I build models and evaluation pipelines that turn raw features into predictions, then validate them against realistic business cases.</p>
-                            <span class="font-mono small text-accent">Outcome: model-backed insights.</span>
-                        </article>
-                    </div>
+
+                <div class="data-project-block">
+                    <h3 class="h6 fw-semibold text-accent font-mono mb-3">GenAI &amp; RAG</h3>
+                    <div class="row g-4" id="dataGenaiGrid"></div>
+                </div>
+
+                <div class="data-project-block">
+                    <h3 class="h6 fw-semibold text-accent font-mono mb-3">Machine learning</h3>
+                    <div class="row g-4" id="dataMlGrid"></div>
+                </div>
+
+                <div class="data-project-block">
+                    <h3 class="h6 fw-semibold text-accent font-mono mb-3">Data analytics &amp; computer vision</h3>
+                    <div class="row g-4" id="dataAnalyticsGrid"></div>
                 </div>
             </div>
         </section>
@@ -176,6 +171,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="projects.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
