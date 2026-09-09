@@ -370,6 +370,18 @@ main {
     background: rgba(18, 23, 38, 0.5);
 }
 
+.project-live-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.35);
+    background: rgba(74, 222, 128, 0.1);
+}
+
 .data-project-block + .data-project-block {
     margin-top: 2.5rem;
 }

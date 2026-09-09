@@ -38,6 +38,31 @@
         const laneBadge = showLane
             ? `<span class="project-lane-badge font-mono">${escapeHtml(p.lane)}</span>`
             : "";
+        const liveBadge = p.liveUrl
+            ? `<span class="project-live-badge font-mono">Live Demo ↗</span>`
+            : "";
+
+        if (p.liveUrl) {
+            return `
+                <div class="col-md-6 col-xl-4">
+                    <div class="card card-glass project-card p-4 tilt-hover reveal h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                                <span class="project-lang-badge font-mono">${escapeHtml(p.lang || "Code")}</span>
+                                ${laneBadge}
+                                ${liveBadge}
+                            </div>
+                            <h3 class="card-title fw-semibold mb-2">${escapeHtml(p.title)}</h3>
+                            <p class="text-secondary small mb-0">${escapeHtml(p.desc)}</p>
+                            ${outcome}
+                        </div>
+                        <div class="d-flex flex-wrap gap-2 mt-3 pt-3 border-top border-secondary border-opacity-10 align-items-center">
+                            <a href="${escapeHtml(p.liveUrl)}" class="btn btn-accent btn-sm font-mono px-3" target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+                            <a href="${escapeHtml(p.href)}" class="btn btn-outline-light btn-sm font-mono px-3" target="_blank" rel="noopener noreferrer">GitHub →</a>
+                        </div>
+                    </div>
+                </div>`;
+        }
 
         return `
             <div class="col-md-6 col-xl-4">
