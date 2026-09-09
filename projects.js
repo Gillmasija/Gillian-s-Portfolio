@@ -2,6 +2,13 @@
 window.PORTFOLIO_PROJECTS = {
     frontend: [
         {
+            title: "DocuLens AI — Enterprise Document Intelligence",
+            desc: "Full-stack multimodal document analysis platform — featuring interactive AI chat UI, evidence inspection, and cross-document comparison.",
+            href: "https://github.com/Gillmasija/Test-RAG-Project",
+            lang: "TypeScript",
+            outcome: "10-view AI product UI.",
+        },
+        {
             title: "IoT Management Dashboard",
             desc: "TypeScript dashboard for monitoring and managing IoT devices — component-driven UI and data-heavy layouts.",
             href: "https://github.com/Gillmasija/iot-management-dashboard",
@@ -45,6 +52,14 @@ window.PORTFOLIO_PROJECTS = {
         },
     ],
     data: [
+        {
+            title: "DocuLens AI — Enterprise RAG Platform",
+            desc: "Full-stack Multimodal RAG system — BM25 + FAISS hybrid retrieval, structured table chunking, grounded citations, and hallucination safeguards.",
+            href: "https://github.com/Gillmasija/Test-RAG-Project",
+            lang: "Python",
+            outcome: "Multimodal RAG platform.",
+            section: "genai",
+        },
         {
             title: "Multimodal RAG — Enterprise Document Analysis",
             desc: "Retrieval-augmented pipeline for enterprise documents — embeddings, retrieval, and multimodal analysis in notebooks.",
@@ -179,6 +194,14 @@ window.PORTFOLIO_PROJECTS = {
         },
     ],
     highlights: [
+        {
+            title: "DocuLens AI — Enterprise RAG Platform",
+            desc: "Full-stack Multimodal RAG document platform with BM25 + FAISS hybrid search and evidence citations.",
+            href: "https://github.com/Gillmasija/Test-RAG-Project",
+            lang: "Python",
+            lane: "data",
+            outcome: "Enterprise RAG platform",
+        },
         {
             title: "IoT Management Dashboard",
             desc: "TypeScript admin UI I point to for production front-end conversations.",
