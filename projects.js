@@ -2,6 +2,14 @@
 window.PORTFOLIO_PROJECTS = {
     frontend: [
         {
+            title: "Stillroom — Focus Timer",
+            desc: "React and Vite focus timer with 25-minute work sessions and short and long break modes.",
+            href: "https://github.com/Gillmasija/Project1",
+            liveUrl: "https://stillroom-self.vercel.app/",
+            lang: "JavaScript",
+            outcome: "Timed focus and break sessions.",
+        },
+        {
             title: "DocuLens AI — Enterprise Document Intelligence",
             desc: "Full-stack multimodal document analysis platform — featuring interactive AI chat UI, evidence inspection, and cross-document comparison.",
             href: "https://github.com/Gillmasija/Test-RAG-Project",
@@ -160,6 +168,14 @@ window.PORTFOLIO_PROJECTS = {
         },
     ],
     teaching: [
+        {
+            title: "ClassPulse — Assessment Tracker",
+            desc: "Browser-local assessment tracker built with HTML, CSS, and JavaScript. Teachers record checkpoints, review topic trends, and export filtered results.",
+            href: "https://github.com/Gillmasija/classpulse",
+            liveUrl: "https://classpulse-lac.vercel.app/",
+            lang: "JavaScript",
+            outcome: "Classroom follow-up from assessment records.",
+        },
         {
             title: "Math Mastermind — Interactive AI",
             desc: "AI-powered math game I use to teach logic, loops, and interactive Python — engaging classroom capstone.",
