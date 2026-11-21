@@ -62,6 +62,14 @@ window.PORTFOLIO_PROJECTS = {
     ],
     data: [
         {
+            title: "TableCheck — Offline CSV Auditor",
+            desc: "Standard-library Python CLI that profiles missing cells, flags exact duplicate records, and validates explicit schema rules. Generates JSON and readable HTML reports without uploading data.",
+            href: "https://github.com/Gillmasija/tablecheck",
+            lang: "Python",
+            outcome: "Local CSV checks with 14 tests across Windows and Linux.",
+            section: "analytics",
+        },
+        {
             title: "DocuLens AI — Enterprise RAG Platform",
             desc: "Full-stack Multimodal RAG system — BM25 + FAISS hybrid retrieval, structured table chunking, grounded citations, and hallucination safeguards.",
             href: "https://github.com/Gillmasija/Test-RAG-Project",
