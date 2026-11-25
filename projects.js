@@ -177,6 +177,14 @@ window.PORTFOLIO_PROJECTS = {
     ],
     teaching: [
         {
+            title: "SessionMap — Workshop Agenda Planner",
+            desc: "Browser-local workshop agenda planner built with HTML, CSS, and JavaScript. Educators and facilitators arrange timed activities, check the session length, and print a facilitator sheet.",
+            href: "https://github.com/Gillmasija/sessionmap",
+            liveUrl: "https://sessionmap-nu.vercel.app/",
+            lang: "JavaScript",
+            outcome: "Timed workshop agendas with JSON backup and restore.",
+        },
+        {
             title: "ClassPulse — Assessment Tracker",
             desc: "Browser-local assessment tracker built with HTML, CSS, and JavaScript. Teachers record checkpoints, review topic trends, and export filtered results.",
             href: "https://github.com/Gillmasija/classpulse",
