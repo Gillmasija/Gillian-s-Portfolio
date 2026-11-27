@@ -2,6 +2,13 @@
 window.PORTFOLIO_PROJECTS = {
     frontend: [
         {
+            title: "PathProof — Static Link Auditor",
+            desc: "Standard-library Python CLI that audits local HTML builds for missing files, broken fragments, and duplicate IDs without sending site files over the network.",
+            href: "https://github.com/Gillmasija/pathproof",
+            lang: "Python",
+            outcome: "Offline link and anchor checks with cross-platform CI coverage.",
+        },
+        {
             title: "Stillroom — Focus Timer",
             desc: "React and Vite focus timer with 25-minute work sessions and short and long break modes.",
             href: "https://github.com/Gillmasija/Project1",
@@ -176,6 +183,13 @@ window.PORTFOLIO_PROJECTS = {
         },
     ],
     teaching: [
+        {
+            title: "RubricKit — Feedback Workspace",
+            desc: "Browser-local rubric builder for teachers: set weighted criteria, score anonymous samples, save progress, and print clear learner feedback.",
+            href: "https://github.com/Gillmasija/rubrickit",
+            lang: "JavaScript",
+            outcome: "Weighted 0–3 rubric feedback with local backup and restore.",
+        },
         {
             title: "SessionMap — Workshop Agenda Planner",
             desc: "Browser-local workshop agenda planner built with HTML, CSS, and JavaScript. Educators and facilitators arrange timed activities, check the session length, and print a facilitator sheet.",
